@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/beranda', function () {
     return view('myLayout');
@@ -26,9 +26,7 @@ Route::get('/kembali', function () {
 
 Auth::routes();
 
-// route::resource('/dashboard', HomeController::class);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+route::resource('/dashboard', AdminController::class);
 
 route::get('logout', function () {
     Auth::logout();
