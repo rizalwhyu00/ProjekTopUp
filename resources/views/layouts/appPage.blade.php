@@ -55,7 +55,7 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/contact">Contact</a></li>
                     <li class="dropdown"><a href="#"><span>Top Up</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><a href="#">Mobile Legends</a></li>
                             <li><a href="#">Free Fire</a></li>
@@ -63,6 +63,7 @@
                             <li><a href="#">Apex Legends</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{ route('login') }}">Login</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>

@@ -39,11 +39,11 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable"
                     aria-expanded="true" aria-controls="collapseTable">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span>
+                    <span>Top Up</span>
                 </a>
                 <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Tables</h6>
+                        <h6 class="collapse-header">Games</h6>
                         <a class="collapse-item" href="#">Mobile Legends</a>
                         <a class="collapse-item" href="#">Valorant</a>
                     </div>

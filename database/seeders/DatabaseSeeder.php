@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Game;
+use App\Models\User;
+use App\Models\Customer;
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,8 +20,21 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Rizal',
+            'email' => 'rizal23ti@mahasiswa.pcr.ac.id',
+            'password' => Hash::make('password'),
+        ]);
+
+        // Buat data customer
+        $customers = Customer::factory(10)->create();
+
+        // Buat data game
+        $games = Game::factory(5)->create();
+
+        // Buat data transaksi
+        Transaction::factory(20)->create([
+            'customer_id' => $customers->random()->id,
+            'game_id' => $games->random()->id,
         ]);
     }
 }

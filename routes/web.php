@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
 Route::get('/beranda', function () {
-    return view('myLayout');
+    return view('landingPage');
 });
 
 Route::get('/contact', function () {
@@ -21,7 +21,7 @@ Route::get('/lainnya', function () {
 });
 
 Route::get('/kembali', function () {
-    return view('myLayout');
+    return view('landingPage');
 });
 
 Auth::routes();

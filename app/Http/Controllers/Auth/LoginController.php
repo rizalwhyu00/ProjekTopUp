@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
@@ -26,6 +28,31 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/dashboard';
+
+    public function showLoginForm()
+    {
+        return view('auth.login'); // Ganti dengan view yang Anda inginkan
+    }
+
+    public function login(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Cek kredensial dan autentikasi user
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+            // Jika autentikasi berhasil
+            return redirect()->intended($this->redirectTo); // Redirect ke dashboard atau halaman lain
+        }
+
+        // Jika autentikasi gagal
+        return back()->withErrors([
+            'email' => 'Incorrect email or password.',
+        ])->withInput($request->only('email', 'remember'));
+    }
 
     /**
      * Create a new controller instance.
