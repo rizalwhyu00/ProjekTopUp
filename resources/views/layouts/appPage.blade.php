@@ -53,6 +53,7 @@
                 <ul>
                     <li><a href="/beranda" class="active">Home<br></a></li>
                     <li><a href="/about">About</a></li>
+                    <li><a href="/history">history</a></li>
                     <li><a href="/contact">Contact</a></li>
                     <li class="dropdown"><a href="#"><span>Top Up</span> <i
                         class="bi bi-chevron-down toggle-dropdown"></i></a>

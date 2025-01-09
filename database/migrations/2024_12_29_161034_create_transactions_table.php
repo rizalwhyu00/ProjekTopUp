@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
             $table->foreignId('game_id')->constrained('games')->onDelete('cascade');
+            $table->string('customerGame_id')->unique();
+            $table->string('server');
+            $table->string('email')->unique();
+            $table->string('nomor_telepon')->unique();
             $table->string('metode_pembayaran');
             $table->enum('status', ['Proses', 'Berhasil', 'Gagal'])->default('Proses');
             $table->timestamp('tanggal_transaksi')->useCurrent();

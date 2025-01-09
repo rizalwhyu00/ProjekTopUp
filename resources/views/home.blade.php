@@ -97,7 +97,6 @@
 
         <!-- Recent Posts Section -->
         <section id="recent-posts" class="recent-posts section">
-
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Pilih Game</h2>

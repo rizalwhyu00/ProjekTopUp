@@ -25,15 +25,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
-        // Buat data customer
-        $customers = Customer::factory(10)->create();
-
         // Buat data game
         $games = Game::factory(5)->create();
 
         // Buat data transaksi
         Transaction::factory(20)->create([
-            'customer_id' => $customers->random()->id,
             'game_id' => $games->random()->id,
         ]);
     }

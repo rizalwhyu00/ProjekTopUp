@@ -7,14 +7,14 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Pilih Game</h2>
+                <h2>History Pembelian</h2>
 
             </div><!-- End Section Title -->
 
             <div class="container">
 
                 <div class="row gy-5">
-                    <a href="/kembali" class="readmore stretched-link"><span>Kembali</span><i
+                    <a href="/beranda" class="readmore stretched-link"><span>Kembali</span><i
                             class="bi bi-arrow-right"></i></a>
 
 

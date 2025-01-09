@@ -19,8 +19,11 @@ class TransactionFactory extends Factory
     public function definition(): array
     {
         return [
-            'customer_id' => Customer::factory(),
             'game_id' => Game::factory(),
+            'customerGame_id' => fake()->unique()->numerify('############'),
+            'server' => fake()->numerify('####'),
+            'email' => fake()->unique()->safeEmail,
+            'nomor_telepon' => fake()->unique()->phoneNumber,
             'metode_pembayaran' => fake()->randomElement(['Transfer Bank', 'OVO', 'GoPay']),
             'status' => fake()->randomElement(['Proses', 'Berhasil', 'Gagal']),
             'tanggal_transaksi' => fake()->dateTime,

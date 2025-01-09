@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="assetsAdmin/img/logo/logo.png" rel="icon">
+    <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>RuangAdmin - Dashboard</title>
-    <link href="assetsAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="assetsAdmin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assetsAdmin/css/ruang-admin.min.css" rel="stylesheet">
+    <link href="/assetsAdmin/img/logo/logo.png" rel="icon">
+    <link href="/assetsAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/assetsAdmin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/assetsAdmin/css/ruang-admin.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -36,6 +38,12 @@
                 Manajemen
             </div>
             <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fab fa-fw fa-wpforms"></i>
+                    <span>Customer</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable"
                     aria-expanded="true" aria-controls="collapseTable">
                     <i class="fas fa-fw fa-table"></i>
@@ -43,9 +51,9 @@
                 </a>
                 <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Games</h6>
-                        <a class="collapse-item" href="#">Mobile Legends</a>
-                        <a class="collapse-item" href="#">Valorant</a>
+                        <a class="collapse-header" href="{{ route('game.index') }}">Games</a>
+                        <a class="collapse-item" href="{{ route('mobileLegends') }}">Mobile Legends</a>
+                        <a class="collapse-item" href="{{ route('freeFire') }}">Free Fire</a>
                     </div>
                 </div>
             </li>
@@ -304,12 +312,13 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <script src="assetsAdmin/vendor/jquery/jquery.min.js"></script>
-    <script src="assetsAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assetsAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assetsAdmin/js/ruang-admin.min.js"></script>
-    <script src="assetsAdmin/vendor/chart.js/Chart.min.js"></script>
-    <script src="assetsAdmin/js/demo/chart-area-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assetsAdmin/vendor/jquery/jquery.min.js"></script>
+    <script src="/assetsAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assetsAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/assetsAdmin/js/ruang-admin.min.js"></script>
+    <script src="/assetsAdmin/vendor/chart.js/Chart.min.js"></script>
+    <script src="/assetsAdmin/js/demo/chart-area-demo.js"></script>
 </body>
 
 </html>

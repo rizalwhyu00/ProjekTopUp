@@ -1,64 +1,58 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
+
 @section('content')
-<div class="row">
-    <div class="col-lg-12 mb-4">
-        <!-- Simple Tables -->
+    <div class="container mt-5">
         <div class="card">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Simple Tables</h6>
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Daftar Game</h5>
+                <a href="{{ route('game.create') }}" class="btn btn-light btn-sm">Tambah Data</a>
             </div>
-            <div class="table-responsive">
-                <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
+            <div class="card-body">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                <table class="table table-bordered table-striped">
+                    <thead class="bg-light">
                         <tr>
-                            <th>Order ID</th>
-                            <th>Customer</th>
-                            <th>Item</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th style="width: 5%;">#</th>
+                            <th>Nama</th>
+                            <th>Produk</th>
+                            <th>Harga</th>
+                            <th style="width: 20%;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="#">RA0449</a></td>
-                            <td>Udin Wayang</td>
-                            <td>Nasi Padang</td>
-                            <td><span class="badge badge-success">Delivered</span></td>
-                            <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">RA5324</a></td>
-                            <td>Jaenab Bajigur</td>
-                            <td>Gundam 90' Edition</td>
-                            <td><span class="badge badge-warning">Shipping</span></td>
-                            <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">RA8568</a></td>
-                            <td>Rivat Mahesa</td>
-                            <td>Oblong T-Shirt</td>
-                            <td><span class="badge badge-danger">Pending</span></td>
-                            <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">RA1453</a></td>
-                            <td>Indri Junanda</td>
-                            <td>Hat Rounded</td>
-                            <td><span class="badge badge-info">Processing</span></td>
-                            <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">RA1998</a></td>
-                            <td>Udin Cilok</td>
-                            <td>Baby Powder</td>
-                            <td><span class="badge badge-success">Delivered</span></td>
-                            <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                        </tr>
+                        @forelse($games as $index => $game)
+                            <tr>
+                                <td>{{ $games->firstItem() + $index }}</td>
+                                <td>{{ $game->nama }}</td>
+                                <td>{{ $game->produk }}</td>
+                                <td>Rp{{ number_format($game->harga, 2, ',', '.') }}</td>
+                                <td class="d-flex gap-2">
+                                    <a href="{{ route('game.edit', $game->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ route('game.destroy', $game->id) }}" method="POST"
+                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center">Tidak ada data</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
+
+                <div class="d-flex justify-content-center">
+                    {{ $games->links() }}
+                </div>
             </div>
-            <div class="card-footer"></div>
         </div>
     </div>
-</div>
 @endsection

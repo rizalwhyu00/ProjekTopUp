@@ -10,12 +10,7 @@ class Transaction extends Model
     /** @use HasFactory<\Database\Factories\TransactionFactory> */
     use HasFactory;
 
-    protected $fillable = ['customer_id', 'game_id', 'metode_pembayaran', 'status', 'tanggal_transaksi'];
-
-    public function customer()
-    {
-        return $this->belongsTo(Customer::class); // Relasi Many to 1
-    }
+    protected $fillable = ['game_id', 'customerGame_id', 'server', 'email', 'nomor_telepon', 'metode_pembayaran', 'status', 'tanggal_transaksi'];
 
     public function game()
     {

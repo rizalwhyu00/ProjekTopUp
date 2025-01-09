@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 @section('content')
 <!-- Container Fluid-->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
